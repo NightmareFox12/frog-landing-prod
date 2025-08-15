@@ -8,7 +8,12 @@ const frogs = [
     base: '/base.png',
     equipped: '/frog1-equipped.png',
     accessories: [
-      {name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '5%', left: '75%', },
+      {
+        name: 'Ghost Protocol',
+        image: '/Ghost_Protocol.png',
+        top: '5%',
+        left: '75%',
+      },
       { name: 'Darkrypt', image: '/Darkrypt.png', top: '0%', left: '-5%' },
       { name: 'Voltrush', image: '/Voltrush.png', top: '70%', left: '-5%' },
       { name: 'Frogne', image: '/Frogne.png', top: '40%', left: '-12%' },

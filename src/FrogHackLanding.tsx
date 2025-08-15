@@ -198,7 +198,7 @@ export default function FrogHackLanding() {
           <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
             <p className='text-xl md:text-2xl leading-relaxed text-center'>
               Three game modes are hopping into FrogHacks—stay tuned to uncover
-              what’s coming.
+              what's coming.
             </p>
           </div>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
