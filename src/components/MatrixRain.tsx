@@ -1,64 +1,47 @@
-import { useEffect, useRef } from 'react';
-
 export const MatrixRain = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  return (
+    <>
+      {/* Binary Rain Effect */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        {Array.from({ length: 100 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-green-400 text-xs opacity-70 font-mono binary-rain"
+            style={{
+              left: `${(i % 10) * 10}%`,
+              animation: 'binary-fall 5s linear infinite',
+              animationDelay: `${i * 0.1}s`,
+              top: '-20px',
+            }}
+          >
+            {Math.random() > 0.5 ? '1' : '0'}
+          </div>
+        ))}
+      </div>
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Solo 0 y 1
-    const chars = '01';
-    const charArray = chars.split('');
-
-    const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
-
-    const drops: number[] = Array(columns).fill(1);
-
-    const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#00ff41';
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = charArray[Math.floor(Math.random() * charArray.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+      <style>{`
+        @keyframes binary-fall {
+          0% {
+            transform: translateY(-20px);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh);
+            opacity: 0;
+          }
         }
 
-        drops[i]++;
-      }
-    };
-
-    const interval = setInterval(draw, 35);
-
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', resizeCanvas);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className='absolute inset-0 w-full h-full opacity-20'
-      style={{ pointerEvents: 'none' }}
-    />
+        .binary-rain {
+          position: absolute;
+          white-space: nowrap;
+        }
+      `}</style>
+    </>
   );
 };

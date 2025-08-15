@@ -2,6 +2,8 @@ import { AccessoryMiniGame } from './components/AccessoryMiniGame';
 import { CharacterSection } from './components/CharacterSection';
 import { MatrixRain } from './components/MatrixRain';
 import { Button } from './components/ui/button';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Card, CardContent } from './components/ui/card';
 
 //constants
@@ -89,6 +91,7 @@ export default function FrogHackLanding() {
           <h2 className='text-6xl md:text-8xl font-bold text-center mb-4 text-white tracking-tight'>
             FROG<span className='text-green-400'> HOUSES</span>
           </h2>
+
           <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
             <p className='text-xl md:text-2xl leading-relaxed text-center'>
               There are 4 unique houses. Each Frog WorkHouse arms Froggers with
@@ -96,98 +99,35 @@ export default function FrogHackLanding() {
               mission, they rest before striking again.
             </p>
           </div>
-          <div className='grid md:grid-cols-2 gap-8'>
-            <Card className='bg-black/80 border-2 border-blue-400 hover:shadow-lg hover:shadow-blue-400/50 transition-all rounded-xl'>
-              <CardContent className='p-8'>
-                <div className='mb-6 relative overflow-hidden rounded-xl'>
-                  <img
-                    src='/Inflitration.gif'
-                    alt='House 1 - Node Infiltration'
-                    className='w-full h-48 object-fill border-2 border-blue-400 rounded-xl'
-                    loading='lazy'
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <h3 className='text-2xl font-bold mb-4 text-blue-400'>
-                  Node Infiltration
-                </h3>
-                <p className='text-blue-400 text-justify'>
-                  A hidden enclave where work is done to access protected
-                  systems. Here, FrogPhantom makes the most of their silent
-                  infiltration tools.
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className='bg-black/80 border-2 border-yellow-400 hover:shadow-lg hover:shadow-yellow-400/50 transition-all rounded-xl'>
-              <CardContent className='p-8'>
-                <div className='mb-6 relative overflow-hidden rounded-xl'>
-                  <img
-                    src='/Disruption.gif'
-                    alt='House 2 - Signal Disruption'
-                    className='w-full h-48 object-fill border-2 border-yellow-400 rounded-xl'
-                    loading='lazy'
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <h3 className='text-2xl font-bold mb-4 text-yellow-400'>
-                  Signal Disruption
-                </h3>
-                <p className='text-yellow-400'>
-                  A secret space where techniques to disable communications are
-                  perfected. FrogRoot masters network sabotage here.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className='bg-black/80 border-2 border-green-400 hover:shadow-lg hover:shadow-green-400/50 transition-all rounded-xl'>
-              <CardContent className='p-8'>
-                <div className='mb-6 relative overflow-hidden rounded-xl'>
-                  <img
-                    src='/Code.gif'
-                    alt='House 3 - Code Decryption'
-                    className='w-full h-48 object-fill border-2 border-green-400 rounded-xl'
-                    loading='lazy'
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <h3 className='text-2xl font-bold mb-4 text-green-400'>
-                  Code Decryption
-                </h3>
-                <p className='text-green-400 text-justify'>
-                  An enigmatic center dedicated to deciphering complex
-                  encryptions. FrogBit deploys all its relentless logic here.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className='bg-black/80 border-2 border-red-400 hover:shadow-lg hover:shadow-red-400/50 transition-all rounded-xl'>
-              <CardContent className='p-8'>
-                <div className='mb-6 relative overflow-hidden rounded-xl'>
-                  <img
-                    src='/Virus.gif'
-                    alt='House 4 - Virus Installation'
-                    className='w-full h-48 object-fill border-2 border-red-400 rounded-xl'
-                    loading='lazy'
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <h3 className='text-2xl font-bold mb-4 text-red-400'>
-                  Virus Installation
-                </h3>
-                <p className='text-red-400 text-justify'>
-                  A clandestine lab where liquidity-draining viruses are
-                  created. FrogGrammer exploits their malware skills here.
-                </p>
-              </CardContent>
-            </Card>
+          <div className='max-w-[500px] mx-auto'>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 4000 }}
+              loop={true}
+              className='rounded-xl'
+            >
+              {['/Inflitration.png', '/Disruption.png', '/Code.png', '/Virus.png'].map((src, index) => (
+                <SwiperSlide key={index}>
+                  <div className='border-2 border-green-400 rounded-xl overflow-hidden'>
+                    <img
+                      src={src}
+                      alt={`House ${index + 1}`}
+                      className='w-full h-[300px] object-fill'
+                      loading='lazy'
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </section>
+
 
       {/* Game Modes Section */}
       <section className='relative z-10 py-2 px-4 mb-12'>
@@ -214,15 +154,15 @@ export default function FrogHackLanding() {
                         mode.name === 'FROGOPS'
                           ? '/frogopsfin.png'
                           : mode.name === 'FROGFORGE'
-                          ? '/frogforge.png'
-                          : mode.name === 'HACK RUSH'
-                          ? '/hackrushfi.png'
-                          : `/abstract-geometric-shapes.png?key=7wl17&height=200&width=200`
+                            ? '/frogforge.png'
+                            : mode.name === 'HACK RUSH'
+                              ? '/hackrushfi.png'
+                              : `/abstract-geometric-shapes.png?key=7wl17&height=200&width=200`
                       }
                       alt={mode.name}
                       width={30}
                       height={30}
-                      className='w-full h-32 object-cover border-2 border-green-400 rounded-xl hover:border-cyan-400 transition-colors'
+                      className='w-full h-full object-fill border-2 border-green-400 rounded-xl hover:border-cyan-400 transition-colors'
                     />
                   </div>
                   <h3 className='text-xl font-bold mb-3 text-green-400'>
