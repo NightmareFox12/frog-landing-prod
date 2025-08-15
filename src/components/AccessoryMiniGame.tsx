@@ -9,10 +9,10 @@ const frogs = [
     equipped: '/frog1-equipped.png',
     accessories: [
       {name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '5%', left: '75%', },
-      { name: 'Darkrypt', image: '/Darkrypt.png', top: '0%', left: '-15%' },
-      { name: 'Voltrush', image: '/Voltrush.png', top: '70%', left: '-15%' },
-      { name: 'Frogne', image: '/Frogne.png', top: '40%', left: '-15%' },
-      { name: 'FireJacket', image: '/FireJacket.png', top: '55%', left: '80%' },
+      { name: 'Darkrypt', image: '/Darkrypt.png', top: '0%', left: '-5%' },
+      { name: 'Voltrush', image: '/Voltrush.png', top: '70%', left: '-5%' },
+      { name: 'Frogne', image: '/Frogne.png', top: '40%', left: '-12%' },
+      { name: 'FireJacket', image: '/FireJacket.png', top: '67%', left: '75%' },
     ],
   },
   {
@@ -20,11 +20,11 @@ const frogs = [
     base: '/base2.png',
     equipped: '/frog2-equipped.png',
     accessories: [
-      { name: 'Darksight', image: '/Darksight.png', top: '0%', left: '70%' },
-      { name: 'Jammer', image: '/Jammer.png', top: '10%', left: '-15%' },
-      { name: 'Voidstep', image: '/Voidstep.png', top: '65%', left: '-15%' },
-      { name: 'Nullpack', image: '/Nullpack.png', top: '72%', left: '82%' },
-      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '35%', left: '80%' },
+      { name: 'Darksight', image: '/Darksight.png', top: '20%', left: '72%' },
+      { name: 'Jammer', image: '/Jammer.png', top: '10%', left: '-8%' },
+      { name: 'Voidstep', image: '/Voidstep.png', top: '65%', left: '-10%' },
+      { name: 'Nullpack', image: '/Nullpack.png', top: '40%', left: '-11%' },
+      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '65%', left: '75%' },
     ],
   },
   {
@@ -33,11 +33,11 @@ const frogs = [
     equipped: '/frog3-equipped.png',
     accessories: [
       { name: 'Bluewave', image: '/Bluewave.png', top: '-5%', left: '70%' },
-      { name: 'Blackout', image: '/Blackout.png', top: '-5%', left: '-10%' },
-      { name: 'Voidstep', image: '/Voidsteps2.png', top: '70%', left: '-10%' },
-      { name: 'Netfroak', image: '/Netfroak.png', top: '70%', left: '80%' },
-      { name: 'Spysuit', image: '/Spysuit.png', top: '28%', left: '80%' },
-      { name: 'Noctyra', image: '/Noctyra.png', top: '35%', left: '-15%' },
+      { name: 'Blackout', image: '/Blackout.png', top: '-5%', left: '0%' },
+      { name: 'Voidstep', image: '/Voidsteps2.png', top: '65%', left: '-5%' },
+      { name: 'Netfroak', image: '/Netfroak.png', top: '65%', left: '75%' },
+      { name: 'Spysuit', image: '/Spysuit.png', top: '28%', left: '75%' },
+      { name: 'Noctyra', image: '/Noctyra.png', top: '25%', left: '-5%' },
     ],
   },
 ] as const;
