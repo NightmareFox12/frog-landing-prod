@@ -47,7 +47,7 @@ export default function FrogHackLanding() {
             </h1>
           </div>
 
-          <div className='mb-8 p-6 border border-green-400 bg-black/50 backdrop-blur-sm animate-pulse rounded-xl'>
+          <div className='mb-8 p-6 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
             <p className='text-xl md:text-2xl leading-relaxed'>
               FrogHack is next-gen gaming: P2E and idle merged into one
               ecosystem. On the FrogChain, frogs reign with power and mystery.
@@ -71,7 +71,7 @@ export default function FrogHackLanding() {
           <h2 className='text-5xl md:text-8xl font-bold text-center mb-4 text-white tracking-[0.5px]'>
             ACCE<span className='text-green-400'>SSORIES</span>
           </h2>
-          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm animate-pulse rounded-xl'>
+          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
             <p className='text-xl md:text-2xl leading-relaxed text-center'>
               Each Frogger wields a custom arsenal—dark-piercing visors, viral
               cores that disrupt entire networks. Their gear is the line between
@@ -89,7 +89,7 @@ export default function FrogHackLanding() {
           <h2 className='text-6xl md:text-8xl font-bold text-center mb-4 text-white tracking-tight'>
             FROG<span className='text-green-400'> HOUSES</span>
           </h2>
-          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm animate-pulse rounded-xl'>
+          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
             <p className='text-xl md:text-2xl leading-relaxed text-center'>
               There are 4 unique houses. Each Frog WorkHouse arms Froggers with
               the tools to unleash their skills. After every FrogChain Ops
@@ -195,7 +195,7 @@ export default function FrogHackLanding() {
           <h2 className='text-6xl md:text-8xl font-bold text-center mb-4 text-white tracking-[0.5px]'>
             GAME<span className='text-green-400'> MODES</span>
           </h2>
-          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm animate-pulse rounded-xl'>
+          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
             <p className='text-xl md:text-2xl leading-relaxed text-center'>
               Three game modes are hopping into FrogHacks—stay tuned to uncover
               what’s coming.

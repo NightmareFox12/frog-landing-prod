@@ -49,7 +49,7 @@ export const CharacterSection: React.FC = () => {
         <h2 className='text-6xl md:text-8xl font-bold text-center mb-4 text-white tracking-[0.5px]'>
           FRO<span className='text-green-400'>GGER</span>
         </h2>
-        <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm animate-pulse rounded-xl'>
+        <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
           <p className='text-xl md:text-2xl leading-relaxed text-center'>
             Four specialists. One deadly mission. Masters of infiltration,
             signal sabotage, decryption, and viral warfare—they're FrogHack’s
