@@ -2,11 +2,11 @@ export const MatrixRain = () => {
   return (
     <>
       {/* Binary Rain Effect */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div className='fixed inset-0 overflow-hidden pointer-events-none z-0'>
         {Array.from({ length: 100 }).map((_, i) => (
           <div
             key={i}
-            className="absolute text-green-400 text-xs opacity-70 font-mono binary-rain"
+            className='absolute text-green-400 text-xs opacity-70 font-mono binary-rain'
             style={{
               left: `${(i % 10) * 10}%`,
               animation: 'binary-fall 5s linear infinite',

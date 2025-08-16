@@ -18,7 +18,7 @@ export const CharacterSection: React.FC = () => {
       {/* Imagen de los 16 personajes a la derecha */}
       <div className='md:w-1/2 flex justify-center items-center'>
         <img
-          src='/frogger-grid.png' 
+          src='/frogger-grid.png'
           alt='FrogHack Characters'
           className='rounded-xl border border-green-400 w-full h-auto object-contain'
           loading='lazy'
