@@ -43,7 +43,7 @@ const frogs = [
       { name: 'Voidstep', image: '/Voidsteps2.png', top: '75%', left: '-3%' },
       { name: 'Netfroak', image: '/Netfroak.png', top: '75%', left: '80%' },
       { name: 'Spysuit', image: '/Spysuit.png', top: '35%', left: '80%' },
-      { name: 'Noctyra', image: '/Noctyra.png', top: '33%', left: '-5%' },
+      { name: 'Noctyra', image: '/Noctyra.png', top: '33%', left: '-3%' },
     ],
   },
 ] as const;
