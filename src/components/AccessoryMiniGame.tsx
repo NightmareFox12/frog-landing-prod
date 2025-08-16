@@ -13,7 +13,7 @@ const frogs = [
       { name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '0%', left: '75%', },
       { name: 'Darkrypt', image: '/Darkrypt.png', top: '5%', left: '0%' },
       { name: 'Voltrush', image: '/Voltrush.png', top: '75%', left: '80%' },
-      { name: 'Frogne', image: '/Frogne.png', top: '70%', left: '-8%' },
+      { name: 'Frogne', image: '/Frogne.png', top: '75%', left: '-5%' },
       { name: 'FireJacket', image: '/FireJacket.png', top: '35%', left: '80%' },
     ],
   },
@@ -23,10 +23,10 @@ const frogs = [
     equipped: '/frog2-equipped.png',
     accessories: [
       { name: 'Darksight', image: '/Darksight.png', top: '0%', left: '75%' },
-      { name: 'Jammer', image: '/Jammer.png', top: '20%', left: '-5%' },
-      { name: 'Voidstep', image: '/Voidstep.png', top: '65%', left: '-8%' },
+      { name: 'Jammer', image: '/Jammer.png', top: '10%', left: '0%' },
+      { name: 'Voidstep', image: '/Voidstep.png', top: '75%', left: '-3%' },
       { name: 'Nullpack', image: '/Nullpack.png', top: '75%', left: '80%' },
-      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '35%', left: '82%' },
+      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '35%', left: '78%' },
     ],
   },
   {
@@ -35,11 +35,11 @@ const frogs = [
     equipped: '/frog3-equipped.png',
     accessories: [
       { name: 'Bluewave', image: '/Bluewave.png', top: '0%', left: '75%' },
-      { name: 'Blackout', image: '/Blackout.png', top: '5%', left: '-5%' },
-      { name: 'Voidstep', image: '/Voidsteps2.png', top: '75%', left: '-8%' },
+      { name: 'Blackout', image: '/Blackout.png', top: '0%', left: '0%' },
+      { name: 'Voidstep', image: '/Voidsteps2.png', top: '75%', left: '-3%' },
       { name: 'Netfroak', image: '/Netfroak.png', top: '75%', left: '80%' },
       { name: 'Spysuit', image: '/Spysuit.png', top: '35%', left: '80%' },
-      { name: 'Noctyra', image: '/Noctyra.png', top: '40%', left: '-10%' },
+      { name: 'Noctyra', image: '/Noctyra.png', top: '33%', left: '-5%' },
     ],
   },
 ] as const;
