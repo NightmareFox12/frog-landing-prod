@@ -3,14 +3,18 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
 import { Button } from './ui/button';
 
-
 const frogs = [
   {
     name: 'FrogGrammer',
     base: '/base.png',
     equipped: '/frog1-equipped.png',
     accessories: [
-      { name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '0%', left: '75%', },
+      {
+        name: 'Ghost Protocol',
+        image: '/Ghost_Protocol.png',
+        top: '0%',
+        left: '75%',
+      },
       { name: 'Darkrypt', image: '/Darkrypt.png', top: '5%', left: '0%' },
       { name: 'Voltrush', image: '/Voltrush.png', top: '75%', left: '80%' },
       { name: 'Frogne', image: '/Frogne.png', top: '75%', left: '-5%' },
@@ -44,58 +48,63 @@ const frogs = [
   },
 ] as const;
 
-export const AccessoryMiniGame: React.FC = () => {
+//components
+const CustomControls = ({
+  activeAccessories,
+}: {
+  activeAccessories: number;
+}) => {
+  const swiper = useSwiper();
 
+  return (
+    <div className='max-w-6xl flex justify-center items-center mt-5 gap-3 sm:gap-5'>
+      <Button
+        size='icon'
+        className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
+        onClick={() => swiper.slidePrev()}
+      >
+        <img
+          src='/arrowSlider.png'
+          alt='arrowRight'
+          style={{
+            imageRendering: 'pixelated',
+          }}
+        />
+      </Button>
+      <div className='relative grid place-items-center'>
+        <span className='absolute mt-1 text-black z-10 font-semibold'>
+          {activeAccessories + 1}
+        </span>
+        <img
+          src='/circleSwiper.png'
+          alt='circle number'
+          style={{
+            imageRendering: 'pixelated',
+          }}
+        />
+      </div>
+      <Button
+        size='icon'
+        onClick={() => swiper.slideNext()}
+        className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
+      >
+        <img
+          src='/arrowSlider.png'
+          alt='arrowLeft'
+          style={{
+            imageRendering: 'pixelated',
+            transform: 'scaleX(-1)',
+          }}
+        />
+      </Button>
+    </div>
+  );
+};
+
+export const AccessoryMiniGame: React.FC = () => {
+  //states
   const [equippedStates, setEquippedStates] = useState([false, false, false]);
   const [activeAccessories, setActiveAccessories] = useState(0);
-
-  const CustomControls = ({ activeAccessories }: { activeAccessories: number }) => {
-    const swiper = useSwiper();
-
-    return (
-      <div className='max-w-6xl flex justify-center items-center mt-5 gap-3 sm:gap-5'>
-        <Button
-          size='icon'
-          className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
-          onClick={() => swiper.slidePrev()}
-        >
-          <img
-            src='/arrowSlider.png'
-            alt='arrowRight'
-            style={{
-              imageRendering: 'pixelated',
-            }}
-          />
-        </Button>
-        <div className='relative grid place-items-center'>
-          <span className='absolute mt-1 text-black z-10 font-semibold'>
-            {activeAccessories + 1}
-          </span>
-          <img
-            src='/circleSwiper.png'
-            alt='circle number'
-            style={{
-              imageRendering: 'pixelated',
-            }}
-          />
-        </div>
-        <Button
-          size='icon'
-          onClick={() => swiper.slideNext()}
-          className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
-        >
-          <img
-            src='/arrowSlider.png'
-            alt='arrowLeft'
-            style={{
-              imageRendering: 'pixelated',
-              transform: 'scaleX(-1)',
-            }}
-          />
-        </Button>
-      </div>
-    );
-  };
 
   //functions
   const toggleEquip = (index: number) => {
@@ -114,7 +123,6 @@ export const AccessoryMiniGame: React.FC = () => {
       </p>
       <Swiper
         slidesPerView={1}
-        scrollbar={{ draggable: true }}
         loop={true}
         pagination={{ clickable: true }}
         modules={[Navigation, A11y]}
@@ -131,8 +139,6 @@ export const AccessoryMiniGame: React.FC = () => {
                       <img
                         src={frog.base}
                         alt={`${frog.name} Base`}
-                        // fill
-                        // className='object-contain z-0'
                         className='absolute h-full w-full object-fill pb-8 md:pb-2 z-0'
                       />
                     </div>
@@ -173,7 +179,6 @@ export const AccessoryMiniGame: React.FC = () => {
                     <img
                       src={frog.equipped}
                       alt={`${frog.name} Equipped`}
-                      // fill
                       className='absolute h-full w-full object-fill pb-8 md:pb-2 z-10'
                     />
                   </div>
@@ -183,10 +188,11 @@ export const AccessoryMiniGame: React.FC = () => {
               {/* Botón de equipar/desequipar */}
               <button
                 onClick={() => toggleEquip(index)}
-                className={`px-6 py-2 font-bold rounded transition-colors ${equippedStates[index]
-                  ? 'bg-cyan-400 text-black hover:bg-green-400'
-                  : 'bg-green-400 text-black hover:bg-cyan-400'
-                  }`}
+                className={`px-6 py-2 font-bold rounded transition-colors ${
+                  equippedStates[index]
+                    ? 'bg-cyan-400 text-black hover:bg-green-400'
+                    : 'bg-green-400 text-black hover:bg-cyan-400'
+                }`}
               >
                 {equippedStates[index]
                   ? 'Unequip Accessories'
