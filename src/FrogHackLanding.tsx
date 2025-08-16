@@ -70,7 +70,7 @@ export default function FrogHackLanding() {
       {/* Accessories Section */}
       <section className='relative z-10 py-2 px-4'>
         <div className='max-w-6xl mx-auto'>
-          <h2 className='text-5xl md:text-8xl font-bold text-center mb-4 text-white tracking-[0.5px]'>
+          <h2 className='text-4xl md:text-7xl font-bold text-center mb-4 text-white tracking-[0.5px]'>
             ACCE<span className='text-green-400'>SSORIES</span>
           </h2>
           <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
