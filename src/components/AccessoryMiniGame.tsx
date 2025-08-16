@@ -11,10 +11,10 @@ const frogs = [
     equipped: '/frog1-equipped.png',
     accessories: [
       { name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '0%', left: '75%', },
-      { name: 'Darkrypt', image: '/Darkrypt.png', top: '5%', left: '-10%' },
-      { name: 'Voltrush', image: '/Voltrush.png', top: '65%', left: '-5%' },
-      { name: 'Frogne', image: '/Frogne.png', top: '35%', left: '75%' },
-      { name: 'FireJacket', image: '/FireJacket.png', top: '67%', left: '78%' },
+      { name: 'Darkrypt', image: '/Darkrypt.png', top: '5%', left: '0%' },
+      { name: 'Voltrush', image: '/Voltrush.png', top: '75%', left: '80%' },
+      { name: 'Frogne', image: '/Frogne.png', top: '70%', left: '-8%' },
+      { name: 'FireJacket', image: '/FireJacket.png', top: '35%', left: '80%' },
     ],
   },
   {
@@ -22,11 +22,11 @@ const frogs = [
     base: '/base2.png',
     equipped: '/frog2-equipped.png',
     accessories: [
-      { name: 'Darksight', image: '/Darksight.png', top: '20%', left: '72%' },
-      { name: 'Jammer', image: '/Jammer.png', top: '0%', left: '-5%' },
+      { name: 'Darksight', image: '/Darksight.png', top: '0%', left: '75%' },
+      { name: 'Jammer', image: '/Jammer.png', top: '20%', left: '-5%' },
       { name: 'Voidstep', image: '/Voidstep.png', top: '65%', left: '-8%' },
-      { name: 'Nullpack', image: '/Nullpack.png', top: '35%', left: '-15%' },
-      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '55%', left: '75%' },
+      { name: 'Nullpack', image: '/Nullpack.png', top: '75%', left: '80%' },
+      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '35%', left: '82%' },
     ],
   },
   {
@@ -34,12 +34,12 @@ const frogs = [
     base: '/base3.png',
     equipped: '/frog3-equipped.png',
     accessories: [
-      { name: 'Bluewave', image: '/Bluewave.png', top: '-5%', left: '70%' },
-      { name: 'Blackout', image: '/Blackout.png', top: '-5%', left: '-5%' },
-      { name: 'Voidstep', image: '/Voidsteps2.png', top: '65%', left: '-8%' },
-      { name: 'Netfroak', image: '/Netfroak.png', top: '65%', left: '75%' },
-      { name: 'Spysuit', image: '/Spysuit.png', top: '28%', left: '75%' },
-      { name: 'Noctyra', image: '/Noctyra.png', top: '25%', left: '-15%' },
+      { name: 'Bluewave', image: '/Bluewave.png', top: '0%', left: '75%' },
+      { name: 'Blackout', image: '/Blackout.png', top: '5%', left: '-5%' },
+      { name: 'Voidstep', image: '/Voidsteps2.png', top: '75%', left: '-8%' },
+      { name: 'Netfroak', image: '/Netfroak.png', top: '75%', left: '80%' },
+      { name: 'Spysuit', image: '/Spysuit.png', top: '35%', left: '80%' },
+      { name: 'Noctyra', image: '/Noctyra.png', top: '40%', left: '-10%' },
     ],
   },
 ] as const;
@@ -144,17 +144,23 @@ export const AccessoryMiniGame: React.FC = () => {
                           top: acc.top,
                           left: acc.left,
                           zIndex: 1,
-                          width: 'clamp(80px, 12vw, 120px)',
-                          height: 'clamp(100px, 14vw, 140px)',
+                          width: 'clamp(60px, 8vw, 72px)',
+                          height: 'clamp(60px, 8vw, 72px)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
                           justifyContent: 'center',
+                          backgroundColor: 'rgba(0,0,0,0.4)',
+                          border: '1px solid white',
+                          borderRadius: '6px',
                         }}
                       >
                         <img
                           src={acc.image}
                           alt={acc.name}
-                          width={60}
-                          height={60}
-                          className='object-contain mb-1 border border-white rounded-sm'
+                          width={35}
+                          height={35}
+                          className='object-contain mb-1 rounded-sm'
                         />
                         <span className='text-[10px] text-white font-bold tracking-widest leading-none'>
                           {acc.name}
@@ -178,8 +184,8 @@ export const AccessoryMiniGame: React.FC = () => {
               <button
                 onClick={() => toggleEquip(index)}
                 className={`px-6 py-2 font-bold rounded transition-colors ${equippedStates[index]
-                    ? 'bg-cyan-400 text-black hover:bg-green-400'
-                    : 'bg-green-400 text-black hover:bg-cyan-400'
+                  ? 'bg-cyan-400 text-black hover:bg-green-400'
+                  : 'bg-green-400 text-black hover:bg-cyan-400'
                   }`}
               >
                 {equippedStates[index]
