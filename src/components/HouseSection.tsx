@@ -25,6 +25,7 @@ const CustomControls = ({ activeHouse }: { activeHouse: number }) => {
       >
         <img
           src='/arrowSlider.png'
+          alt='arrowRight'
           style={{
             imageRendering: 'pixelated',
           }}
@@ -36,6 +37,7 @@ const CustomControls = ({ activeHouse }: { activeHouse: number }) => {
         </span>
         <img
           src='/circleSwiper.png'
+          alt='circle number'
           style={{
             imageRendering: 'pixelated',
           }}
@@ -48,6 +50,7 @@ const CustomControls = ({ activeHouse }: { activeHouse: number }) => {
       >
         <img
           src='/arrowSlider.png'
+          alt='arrowLeft'
           style={{
             imageRendering: 'pixelated',
             transform: 'scaleX(-1)',
