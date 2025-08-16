@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
+import { Button } from './ui/button';
+
 
 const frogs = [
   {
@@ -8,11 +10,11 @@ const frogs = [
     base: '/base.png',
     equipped: '/frog1-equipped.png',
     accessories: [
-      {name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '0%', left: '75%', },
-      { name: 'Darkrypt', image: '/Darkrypt.png', top: '5%', left: '-5%' },
+      { name: 'Ghost Protocol', image: '/Ghost_Protocol.png', top: '0%', left: '75%', },
+      { name: 'Darkrypt', image: '/Darkrypt.png', top: '5%', left: '-10%' },
       { name: 'Voltrush', image: '/Voltrush.png', top: '65%', left: '-5%' },
-      { name: 'Frogne', image: '/Frogne.png', top: '35%', left: '78%' },
-      { name: 'FireJacket', image: '/FireJacket.png', top: '67%', left: '75%' },
+      { name: 'Frogne', image: '/Frogne.png', top: '35%', left: '75%' },
+      { name: 'FireJacket', image: '/FireJacket.png', top: '67%', left: '78%' },
     ],
   },
   {
@@ -22,9 +24,9 @@ const frogs = [
     accessories: [
       { name: 'Darksight', image: '/Darksight.png', top: '20%', left: '72%' },
       { name: 'Jammer', image: '/Jammer.png', top: '0%', left: '-5%' },
-      { name: 'Voidstep', image: '/Voidstep.png', top: '70%', left: '-5%' },
-      { name: 'Nullpack', image: '/Nullpack.png', top: '35%', left: '-8%' },
-      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '65%', left: '75%' },
+      { name: 'Voidstep', image: '/Voidstep.png', top: '65%', left: '-8%' },
+      { name: 'Nullpack', image: '/Nullpack.png', top: '35%', left: '-15%' },
+      { name: 'Shadowsuit', image: '/Shadowsuit.png', top: '55%', left: '75%' },
     ],
   },
   {
@@ -33,18 +35,67 @@ const frogs = [
     equipped: '/frog3-equipped.png',
     accessories: [
       { name: 'Bluewave', image: '/Bluewave.png', top: '-5%', left: '70%' },
-      { name: 'Blackout', image: '/Blackout.png', top: '-5%', left: '0%' },
-      { name: 'Voidstep', image: '/Voidsteps2.png', top: '65%', left: '-5%' },
+      { name: 'Blackout', image: '/Blackout.png', top: '-5%', left: '-5%' },
+      { name: 'Voidstep', image: '/Voidsteps2.png', top: '65%', left: '-8%' },
       { name: 'Netfroak', image: '/Netfroak.png', top: '65%', left: '75%' },
       { name: 'Spysuit', image: '/Spysuit.png', top: '28%', left: '75%' },
-      { name: 'Noctyra', image: '/Noctyra.png', top: '25%', left: '-5%' },
+      { name: 'Noctyra', image: '/Noctyra.png', top: '25%', left: '-15%' },
     ],
   },
 ] as const;
 
 export const AccessoryMiniGame: React.FC = () => {
-  //states
+
   const [equippedStates, setEquippedStates] = useState([false, false, false]);
+  const [activeAccessories, setActiveAccessories] = useState(0);
+
+  const CustomControls = ({ activeAccessories }: { activeAccessories: number }) => {
+    const swiper = useSwiper();
+
+    return (
+      <div className='max-w-6xl flex justify-center items-center mt-5 gap-3 sm:gap-5'>
+        <Button
+          size='icon'
+          className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
+          onClick={() => swiper.slidePrev()}
+        >
+          <img
+            src='/arrowSlider.png'
+            alt='arrowRight'
+            style={{
+              imageRendering: 'pixelated',
+            }}
+          />
+        </Button>
+        <div className='relative grid place-items-center'>
+          <span className='absolute mt-1 text-black z-10 font-semibold'>
+            {activeAccessories + 1}
+          </span>
+          <img
+            src='/circleSwiper.png'
+            alt='circle number'
+            style={{
+              imageRendering: 'pixelated',
+            }}
+          />
+        </div>
+        <Button
+          size='icon'
+          onClick={() => swiper.slideNext()}
+          className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
+        >
+          <img
+            src='/arrowSlider.png'
+            alt='arrowLeft'
+            style={{
+              imageRendering: 'pixelated',
+              transform: 'scaleX(-1)',
+            }}
+          />
+        </Button>
+      </div>
+    );
+  };
 
   //functions
   const toggleEquip = (index: number) => {
@@ -61,15 +112,14 @@ export const AccessoryMiniGame: React.FC = () => {
       <p className='text-green-300 mb-6'>
         Swipe through frogs. Equip their gear. See them evolve.
       </p>
-
       <Swiper
         slidesPerView={1}
-        navigation
         scrollbar={{ draggable: true }}
         loop={true}
         pagination={{ clickable: true }}
         modules={[Navigation, A11y]}
         className='w-full max-w-md mx-auto mb-12'
+        onSlideChange={(swiper) => setActiveAccessories(swiper.realIndex)}
       >
         {frogs.map((frog, index) => (
           <SwiperSlide key={frog.name}>
@@ -127,11 +177,10 @@ export const AccessoryMiniGame: React.FC = () => {
               {/* Botón de equipar/desequipar */}
               <button
                 onClick={() => toggleEquip(index)}
-                className={`px-6 py-2 font-bold rounded transition-colors ${
-                  equippedStates[index]
+                className={`px-6 py-2 font-bold rounded transition-colors ${equippedStates[index]
                     ? 'bg-cyan-400 text-black hover:bg-green-400'
                     : 'bg-green-400 text-black hover:bg-cyan-400'
-                }`}
+                  }`}
               >
                 {equippedStates[index]
                   ? 'Unequip Accessories'
@@ -140,6 +189,7 @@ export const AccessoryMiniGame: React.FC = () => {
             </div>
           </SwiperSlide>
         ))}
+        <CustomControls activeAccessories={activeAccessories} />
       </Swiper>
     </section>
   );

@@ -4,6 +4,7 @@ import { HouseSection } from './components/HouseSection';
 import { MatrixRain } from './components/MatrixRain';
 import { Button } from './components/ui/button';
 import { Card, CardContent } from './components/ui/card';
+import RetroHeader from './components/retro-header';
 
 //constants
 const gameModes = [
@@ -25,9 +26,9 @@ export default function FrogHackLanding() {
   return (
     <main className='min-h-screen bg-black text-green-400 overflow-hidden relative'>
       <MatrixRain />
+      <RetroHeader />
 
-      {/* Hero Section */}
-      <section className='relative z-10 min-h-screen flex items-center justify-center px-4'>
+      <section className='relative z-10 min-h-screen flex items-center justify-center px-4 mt-2'>
         <div className='text-center max-w-4xl mx-auto'>
           <div className='mb-4'> 
             <img
@@ -80,7 +81,7 @@ export default function FrogHackLanding() {
             </p>
           </div>
 
-          <AccessoryMiniGame />
+        <AccessoryMiniGame />
         </div>
       </section>
 
