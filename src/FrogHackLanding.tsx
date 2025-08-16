@@ -1,9 +1,8 @@
 import { AccessoryMiniGame } from './components/AccessoryMiniGame';
 import { CharacterSection } from './components/CharacterSection';
+import { HouseSection } from './components/HouseSection';
 import { MatrixRain } from './components/MatrixRain';
 import { Button } from './components/ui/button';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Card, CardContent } from './components/ui/card';
 
 //constants
@@ -30,7 +29,7 @@ export default function FrogHackLanding() {
       {/* Hero Section */}
       <section className='relative z-10 min-h-screen flex items-center justify-center px-4'>
         <div className='text-center max-w-4xl mx-auto'>
-          <div className='mb-4'>
+          <div className='mb-4'> 
             <img
               src='/Logo.png'
               alt='FrogHack Logo'
@@ -86,48 +85,7 @@ export default function FrogHackLanding() {
       </section>
 
       {/* Houses Section */}
-      <section className='relative z-10 py-20 px-4'>
-        <div className='max-w-6xl mx-auto'>
-          <h2 className='text-6xl md:text-8xl font-bold text-center mb-4 text-white tracking-tight'>
-            FROG<span className='text-green-400'> HOUSES</span>
-          </h2>
-
-          <div className='mb-8 p-4 border border-green-400 bg-black/50 backdrop-blur-sm rounded-xl'>
-            <p className='text-xl md:text-2xl leading-relaxed text-center'>
-              There are 4 unique houses. Each Frog WorkHouse arms Froggers with
-              the tools to unleash their skills. After every FrogChain Ops
-              mission, they rest before striking again.
-            </p>
-          </div>
-
-          <div className='max-w-[500px] mx-auto'>
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={20}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 4000 }}
-              loop={true}
-              className='rounded-xl'
-            >
-              {['/Inflitration.png', '/Disruption.png', '/Code.png', '/Virus.png'].map((src, index) => (
-                <SwiperSlide key={index}>
-                  <div className='border-2 border-green-400 rounded-xl overflow-hidden'>
-                    <img
-                      src={src}
-                      alt={`House ${index + 1}`}
-                      className='w-full h-[300px] object-fill'
-                      loading='lazy'
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </section>
-
+      <HouseSection />
 
       {/* Game Modes Section */}
       <section className='relative z-10 py-2 px-4 mb-12'>
@@ -154,10 +112,10 @@ export default function FrogHackLanding() {
                         mode.name === 'FROGOPS'
                           ? '/frogopsfin.png'
                           : mode.name === 'FROGFORGE'
-                            ? '/frogforge.png'
-                            : mode.name === 'HACK RUSH'
-                              ? '/hackrushfi.png'
-                              : `/abstract-geometric-shapes.png?key=7wl17&height=200&width=200`
+                          ? '/frogforge.png'
+                          : mode.name === 'HACK RUSH'
+                          ? '/hackrushfi.png'
+                          : `/abstract-geometric-shapes.png?key=7wl17&height=200&width=200`
                       }
                       alt={mode.name}
                       width={30}
@@ -185,6 +143,18 @@ export default function FrogHackLanding() {
           </p>
         </div>
       </footer>
+
+      {/* Swiper override styles */}
+      <style>{`
+        :root {
+          --swiper-navigation-color: #05df72 !important;
+          --swiper-theme-color: #05df72 !important;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: #05df72;
+        }
+      `}</style>
     </main>
   );
 }

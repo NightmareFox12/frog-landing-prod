@@ -141,18 +141,6 @@ export const AccessoryMiniGame: React.FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Swiper override styles */}
-      <style>{`
-        :root {
-          --swiper-navigation-color: #05df72 !important;
-          --swiper-theme-color: #05df72 !important;
-        }
-        .swiper-button-prev,
-        .swiper-button-next {
-          color: #05df72;
-        }
-      `}</style>
     </section>
   );
 };
