@@ -18,7 +18,11 @@ const CustomControls = ({ activeHouse }: { activeHouse: number }) => {
 
   return (
     <div className='max-w-6xl flex justify-center items-center mt-5 gap-3 sm:gap-5'>
-      <Button size='icon' className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100' onClick={() => swiper.slidePrev()}>
+      <Button
+        size='icon'
+        className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
+        onClick={() => swiper.slidePrev()}
+      >
         <img
           src='/arrowSlider.png'
           style={{
@@ -27,7 +31,9 @@ const CustomControls = ({ activeHouse }: { activeHouse: number }) => {
         />
       </Button>
       <div className='relative grid place-items-center'>
-        <span className='absolute mt-1 text-black z-10 font-semibold'>{activeHouse + 1}</span>
+        <span className='absolute mt-1 text-black z-10 font-semibold'>
+          {activeHouse + 1}
+        </span>
         <img
           src='/circleSwiper.png'
           style={{
@@ -35,7 +41,11 @@ const CustomControls = ({ activeHouse }: { activeHouse: number }) => {
           }}
         />
       </div>
-      <Button  size='icon' onClick={() => swiper.slideNext()} className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'>
+      <Button
+        size='icon'
+        onClick={() => swiper.slideNext()}
+        className='bg-transparent cursor-pointer hover:bg-transparent hover:scale-[0.80] delay-100'
+      >
         <img
           src='/arrowSlider.png'
           style={{
@@ -53,7 +63,7 @@ export const HouseSection: React.FC = () => {
   const [activeHouse, setActiveHouse] = useState<number>(0);
 
   return (
-    <section className='relative z-10 py-20'>
+    <section className='relative z-10 py-10 md:py-20'>
       <div className='max-w-6xl mx-auto'>
         <h2 className='text-6xl md:text-8xl font-bold text-center mb-4 text-white tracking-[0.5px]'>
           FROG<span className='text-green-400'> HOUSES</span>
@@ -92,7 +102,7 @@ export const HouseSection: React.FC = () => {
                     className={`border-4 border-green-400 object-fill transition-all delay-75 ${
                       activeHouse === index
                         ? 'h-full w-full'
-                        : 'w-[80px] h-[80px] sm:w-[100px] sm:h-[100] md:w-[150px] md:h-[150px] lg:w-[150px]'
+                        : 'w-[80px] h-[80px] sm:w-[100px] sm:h-[100] md:w-[150px] md:h-[150px] lg:w-[150px] opacity-65'
                     }`}
                     loading='lazy'
                   />
